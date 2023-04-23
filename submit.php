@@ -11,6 +11,7 @@ $sumber = $_POST["sumber"];
 $lat = $_POST['lat'];
 $lng = $_POST['lng'];
 
+
 if ($NIK == 0) {
   echo "<script>alert('NIK tidak boleh kosong!');</script>";
 } else {

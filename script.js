@@ -29,10 +29,14 @@ var markerLayer = new ol.layer.Vector({
 });
 map.addLayer(markerLayer);
 
+let lng;
+let lat;
+
 map.on('click', function(event) {
+  
   var lnglat = ol.proj.transform(event.coordinate, 'EPSG:3857', 'EPSG:4326');
-  var lng = lnglat[0];
-  var lat = lnglat[1];
+  lng = parseFloat(lnglat[0]);
+  lat = parseFloat(lnglat[1]);
 
   if (markerLayer.getSource().getFeatures().length > 0) {
     markerLayer.getSource().clear();
@@ -43,20 +47,77 @@ map.on('click', function(event) {
   });
   markerLayer.getSource().addFeature(markerFeature);
 
-  // Tampilkan informasi long dan lat
   console.log('Longitude:', lng, 'Latitude:', lat);
-  $.ajax({
-    url: 'submit.php',
-    type: 'POST',
-    data: {
-      'lng': lng,
-      'lat': lat
-    },
-    success: function(response) {
-      console.log('Data berhasil dikirim');
-    },
-    error: function(xhr, status, error) {
-      console.log('Terjadi kesalahan:', error);
-    }
-  });
+
 });
+
+
+function inputData() {
+  
+  console.log('Longitude:', lng, 'Latitude:', lat);
+  if (lng==null || lat==null) {
+    alert("Pilih alamat anda dengan mengklik lokasi rumah anda pada map!");
+    return false;
+  }
+
+  if (document.getElementById("nama").value=='') {
+    alert("Masukkan nama!");
+    return false;
+  }
+
+  if (document.getElementById("no_ktp").value=='') {
+    alert("Masukkan no KTP!");
+    return false;
+  }
+
+  if (document.getElementById("email").value=='') {
+    alert("Masukkan email!");
+    return false;
+  }
+
+  if ($("input[name=bau]:checked").val()==undefined) {
+    alert("Pilih apakah air mempunyai bau atau tidak!");
+    return false;
+  }
+
+  if ($("input[name=rasa]:checked").val()==undefined) {
+    alert("Pilih apakah air mempunyai rasa atau tidak!");
+    return false;
+  }
+
+  if ($("input[name=warna]:checked").val()==undefined) {
+    alert("Pilih apakah air mempunyai warna atau tidak!");
+    return false;
+  }
+
+  if ($("input[name=sumber]:checked").val()==undefined) {
+    alert("Pilih sumber air!");
+    return false;
+  }
+  
+  no_ktp = document.getElementById("no_ktp").value;
+  if (no_ktp.length > 16 || no_ktp.length < 16) {
+    $.ajax({
+        url: 'submit.php',
+        type: 'POST',
+        data: {
+          'nama': document.getElementById("nama").value,
+          'no_ktp': no_ktp,
+          'email': document.getElementById("email").value,        
+          'lng': lng,
+          'lat': lat,
+          'berasa': $("input[name='rasa']:checked").val(),
+          'berwarna': $("input[name='warna']:checked").val() ,
+          'berbau': $("input[name='bau']:checked").val(),
+          'sumber': $("input[name='sumber']:checked").val()
+        },
+        success: function(response) {
+          console.log('Data berhasil dikirim');
+          window.location.href = 'terkirim.html';
+        },
+        error: function(xhr, status, error) {
+          console.log('Terjadi kesalahan:', error);
+        }
+    });
+  } else{alert("Tolong pastikan NIK anda 16 digit")}
+}

@@ -31,6 +31,7 @@ iframe {
 }
 .btn-secondary{
     float: right;
+    margin-bottom: 10px;
 }
 .radio{
     font-family: 'Josefin Sans', sans-serif;
