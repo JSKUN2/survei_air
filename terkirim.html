@@ -2,25 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Terima Kasih</title>
+    <!-- Load Bootstrap CSS from CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-nTHSmEjG4n4p4APG4fLJIl+xzL8lV0nQmkDlrcv1T0nX8Kj0e2C6/VwU6y+U6y0rjKJmAlrASvFZdD0+7Nk5oA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Load Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" />
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .thank-you {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 <body>
-    <div style="width:100%; height:100%; position:relative;">
-        <div style="width:50%; height:50%; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);">
-          <h1>Data Terkirim</h1>
-          <h2>👐Terima kasih telah mengirim👐</h2>
+    <div class="thank-you">
+        <div class="text-center">
+            <h1>Terima Kasih!</h1>
+            <p class="lead">Data anda sedang diproses</p>
+            <a href="hasilsurvei.html" class="btn btn-primary">Hasil survei</a>
         </div>
-      </div>
+    </div>
+    <!-- Load Bootstrap JS from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-eT0IPJYB/la2Ui7LFJdkRuHJeB6U5gXU5pGTTbhe6cZzj3wJc1AMnAG1IjfC2QoXTJS30RnzvJMN+svPJZ63Lg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js" integrity="sha512-d5U6V5Uc9uUHJ98UGEdKHDuj8C4E4+ec73xJOJidh47Fj8gS1Xmp2bTATM1TQtdm8oY+AYRvFpDhBzloGy8s3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-i8dKYFkSS+0Kj27bJNG3q8sJGX9kw5mHyFkJKoBw+MCM1zULm1i7mQALumHWKGB+ojGXdR9P/7JIC66CZzN7VQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
-<style>
-    body{
-        background-color: cornflowerblue;
-    }
-    h1,h2{
-        text-align: center;
-
-    }
-</style>
 </html>
