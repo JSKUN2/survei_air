@@ -60,6 +60,7 @@ iframe {
     iframe{
         width:98%;
     }
+    #map{width:90%;}
 }
 @keyframes transition{
     from{
