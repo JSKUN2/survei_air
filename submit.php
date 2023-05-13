@@ -26,5 +26,4 @@ if ($NIK == 0) {
     header("Location: index.html");
   }
 }
-
 ?>
