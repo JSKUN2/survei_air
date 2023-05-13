@@ -96,7 +96,7 @@ function inputData() {
   }
   
   no_ktp = document.getElementById("no_ktp").value;
-  if (no_ktp.length > 16 || no_ktp.length < 16) {
+  if (no_ktp.length === 16) {
     $.ajax({
         url: 'submit.php',
         type: 'POST',
